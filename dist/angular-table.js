@@ -265,7 +265,7 @@
 
     function StandardSetup(configurationVariableNames, list) {
       this.list = list;
-      this.repeatString = "item in " + this.list + " | orderBy:predicate:descending";
+      this.repeatString = "(key, item) in " + this.list + " | orderBy:predicate:descending";
     }
 
     StandardSetup.prototype.compile = function(element, attributes, transclude) {
@@ -283,7 +283,7 @@
 
     function PaginatedSetup(configurationVariableNames) {
       this.configurationVariableNames = configurationVariableNames;
-      this.repeatString = "item in sortedAndPaginatedList";
+      this.repeatString = "(key, item) in sortedAndPaginatedList";
     }
 
     PaginatedSetup.prototype.compile = function(element) {
@@ -298,7 +298,7 @@
       fillerTr = angular.element(document.createElement("tr"));
       fillerTr.attr("ng-show", this.configurationVariableNames.fillLastPage);
       fillerTr.html(tdString);
-      fillerTr.attr("ng-repeat", "item in fillerArray");
+      fillerTr.attr("ng-repeat", "(key, item) in fillerArray");
       tbody.append(fillerTr);
     };
 
